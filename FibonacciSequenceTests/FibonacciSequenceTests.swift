@@ -20,37 +20,43 @@ final class FibonacciSequenceTests: XCTestCase {
         super.tearDown()
     }
 
-    func testSequenceForNumberOne() {
-        let expectedResult = [0, 1]
-        let result = fibonacciSequence.buildSequenceFor(1)
+    func test_fibonacciSequence_forPositionZeroOrOne_shouldReturnItsOwnValue() {
 
-        XCTAssertEqual(result, expectedResult)
+        let position = 0
+        let result =  fibonacciSequence.getFibonacciSequenceNumber(for: position)
+        XCTAssertEqual(result, position)
     }
 
-    func testSequenceForNumberTwo() {
-        let expectedResult = [0, 1, 1]
-        let result = fibonacciSequence.buildSequenceFor(2)
+    func test_fibonacciSequence_forPosition2_shouldReturnTheSumOfPosition0AndPosition1() {
+        let position = 2
 
-        XCTAssertEqual(result, expectedResult)
+        let positionZero = fibonacciSequence.getFibonacciSequenceNumber(for: 0)
+        let positionOne = fibonacciSequence.getFibonacciSequenceNumber(for: 1)
+        let positionTwo = fibonacciSequence.getFibonacciSequenceNumber(for: 2)
+
+        XCTAssertEqual(positionTwo!, positionZero! + positionOne!)
     }
 
-    func testSequenceForNumberFour() {
-        let expectedResult = [0, 1, 1, 2, 3]
-        let result = fibonacciSequence.buildSequenceFor(4)
+    func test_fibonacciSequence_forPosition5_shouldReturnTheSumOfPosition3AndPosition4() {
+        let position = 5
 
-        XCTAssertEqual(result, expectedResult)
+        let positionThree = fibonacciSequence.getFibonacciSequenceNumber(for: 3)
+        let positionFour = fibonacciSequence.getFibonacciSequenceNumber(for: 4)
+        let positionFive = fibonacciSequence.getFibonacciSequenceNumber(for: 5)
+
+        XCTAssertEqual(positionFive!, positionThree! + positionFour!)
     }
 
-    func testSequenceForNumberFive() {
-        let expectedResult = [0, 1, 1, 2, 3, 5]
-        let result = fibonacciSequence.buildSequenceFor(5)
+    func test_fibonacciSequence_forPositionN_shouldReturnTheSumOfPreviousTwoPositions() {
 
-        XCTAssertEqual(result, expectedResult)
-    }
+        let n = 4
+        let positionPrevious1 = fibonacciSequence.getFibonacciSequenceNumber(for: (n - 1))
+        let positionPrevious2 = fibonacciSequence.getFibonacciSequenceNumber(for: (n - 2))
 
-    func testSequenceResults() {
-        for i in 0...10 {
-            print("for value \(i): " + fibonacciSequence.buildSequenceFor(i).description)
-        }
+        let positionN = fibonacciSequence.getFibonacciSequenceNumber(for: n)
+
+        print("for position \(n) the fibonacci result is \(positionN!)")
+
+        XCTAssertEqual(positionN, positionPrevious1! + positionPrevious2!)
     }
 }
