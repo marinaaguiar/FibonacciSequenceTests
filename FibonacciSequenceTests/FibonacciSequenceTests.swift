@@ -28,8 +28,6 @@ final class FibonacciSequenceTests: XCTestCase {
     }
 
     func test_fibonacciSequence_forPosition2_shouldReturnTheSumOfPosition0AndPosition1() {
-        let position = 2
-
         let positionZero = fibonacciSequence.getFibonacciSequenceNumber(for: 0)
         let positionOne = fibonacciSequence.getFibonacciSequenceNumber(for: 1)
         let positionTwo = fibonacciSequence.getFibonacciSequenceNumber(for: 2)
@@ -38,8 +36,6 @@ final class FibonacciSequenceTests: XCTestCase {
     }
 
     func test_fibonacciSequence_forPosition5_shouldReturnTheSumOfPosition3AndPosition4() {
-        let position = 5
-
         let positionThree = fibonacciSequence.getFibonacciSequenceNumber(for: 3)
         let positionFour = fibonacciSequence.getFibonacciSequenceNumber(for: 4)
         let positionFive = fibonacciSequence.getFibonacciSequenceNumber(for: 5)

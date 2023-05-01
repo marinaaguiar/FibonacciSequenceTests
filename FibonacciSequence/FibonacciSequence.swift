@@ -43,12 +43,12 @@ class FibonacciSequence {
 
         for _ in 0...position - 2 {
             let previousNumberInSequence = sequence[sequence.count - 2]
-//            print(previousNumberInSequence)
+            print(previousNumberInSequence)
             let currentNumberInSequence = sequence.last!
-//            print(currentNumberInSequence)
+            print(currentNumberInSequence)
             let fibonacciNumber = previousNumberInSequence + currentNumberInSequence
             sequence.append(fibonacciNumber)
-//            print(sequence)
+            print(sequence)
         }
         return sequence
     }
